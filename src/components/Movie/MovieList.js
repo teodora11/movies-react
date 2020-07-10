@@ -1,29 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import MovieCard from './MovieCard';
 
-const getMovies = (movies) => {
-    return (
-        <div className="card-deck">
-            {
-                movies.map(movie => <MovieCard key={movie.id} movie={movie} />)
-            }
-        </div>
-    );
-};
-
-const MovieList = (props) => (
-    <div>
-        {getMovies(props.movies)}
-    </div>
+const getMovies = movies => (
+  <div className="card-deck">
+    {movies.map(movie => (
+      <MovieCard key={movie.id} movie={movie} />
+    ))}
+  </div>
 );
 
+const MovieList = ({ movies }) => <div>{getMovies(movies)}</div>;
+
 MovieList.defaultProps = {
-    movies: []
+  movies: [],
 };
 
 MovieList.propTypes = {
-    movies: PropTypes.array
+  movies: PropTypes.array,
 };
 
 export default MovieList;
