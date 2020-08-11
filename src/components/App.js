@@ -5,7 +5,7 @@ import Movies from './Movie/Movies';
 
 export default class App extends Component {
   state = {
-    title: 'React Movie Cards',
+    title: 'React Movie cards',
   };
 
   render() {
