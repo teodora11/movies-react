@@ -20,7 +20,9 @@ export default class Movies extends Component {
       newDescription: '',
       newYear: '',
       newImageUrl: '',
-      newRating: ''
+      newRating: '',
+
+      ratingNumber: 0
     }));
   }
 
@@ -34,7 +36,8 @@ export default class Movies extends Component {
             <div className="d-flex flex-row">
               <div className="col-sm-12">
                 <MovieList movies={this.state.movies}
-                  deleteMovie={this.handleDelete} />
+                  deleteMovie={this.handleDelete}
+                  rateMovie={this.handleRate} />
               </div>
             </div>
           } />
@@ -96,6 +99,13 @@ export default class Movies extends Component {
 
   handleDelete = (movie) => {
     const movies = this.state.movies.filter(m => m !== movie);
+    this.setState({ movies });
+  }
+
+  handleRate = (movie, rate) => {
+    const movies = [...this.state.movies];
+    const i = movies.indexOf(movie);
+    movies[i].rating = rate;
     this.setState({ movies });
   }
 }
