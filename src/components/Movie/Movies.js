@@ -30,8 +30,8 @@ export default class Movies extends Component {
     return (
       <BrowserRouter>
         <div className="container-fluid" style={{ marginLeft: '-15px' }}>
-          <button><Link to='/new-movie'>Add movie</Link></button>
-          <Link to='/'>Movies</Link>
+          <button className='btn btn-warning m-2'><Link to='/new-movie'>Add movie</Link></button>
+          <button className='btn btn-warning m-2'><Link to='/'>Movies</Link></button>
           <Route path='/' exact render={() =>
             <div className="d-flex flex-row">
               <div className="col-sm-12">
