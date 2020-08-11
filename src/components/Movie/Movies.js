@@ -33,7 +33,8 @@ export default class Movies extends Component {
           <Route path='/' exact render={() =>
             <div className="d-flex flex-row">
               <div className="col-sm-12">
-                <MovieList movies={this.state.movies} />
+                <MovieList movies={this.state.movies}
+                  deleteMovie={this.handleDelete} />
               </div>
             </div>
           } />
@@ -91,5 +92,10 @@ export default class Movies extends Component {
         newRating: ''
       });
     }
+  }
+
+  handleDelete = (movie) => {
+    const movies = this.state.movies.filter(m => m !== movie);
+    this.setState({ movies });
   }
 }
